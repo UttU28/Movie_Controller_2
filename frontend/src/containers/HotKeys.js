@@ -17,8 +17,8 @@ export default function HotKeys() {
     { name: "prevTab", icon: faArrowLeft, alias: "PREV TAB" },
     { name: "nextTab", icon: faArrowRight, alias: "NEXT TAB" },
     { name: "closeTab", icon: faXmark, alias: "CLS TAB" },
-    { name: "goBack", icon: faChevronLeft, alias: "TAB BACK" },
-    { name: "goAhead", icon: faChevronRight, alias: "TAB NEXT" },
+    { name: "goBackTab", icon: faChevronLeft, alias: "TAB BACK" },
+    { name: "goAheadTab", icon: faChevronRight, alias: "TAB NEXT" },
     { name: "volumeDown", icon: faVolumeLow, alias: "VOL -" },
   ]
   ];

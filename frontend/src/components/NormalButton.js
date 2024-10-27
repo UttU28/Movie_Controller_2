@@ -3,29 +3,19 @@
 
 import { Button, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppState } from '../context/AppStateContext'; // Import context
+import { useAppState } from '../context/AppStateContext'; 
+import { sendButtonAction } from '../context/apiRequests'; 
 
 export default function NormalButton({ buttonName, icon, alias, iconColor = 'white', whatToDoOnClick }) {
-  const { goBack } = useAppState(); // Use context to handle goBack
+  const { goBack } = useAppState();
 
   const defaultHandleButtonClick = async () => {
     try {
       console.log(buttonName);
       if (buttonName === 'goBack') {
-        goBack(); // Call goBack to reset visibility
+        goBack();
       } else {
-        const response = await fetch('http://localhost/action', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ action: buttonName }),
-        });
-
-        if (!response.ok) throw new Error('Network response was not ok');
-
-        const data = await response.json();
-        console.log('Success:', data);
+        await sendButtonAction(buttonName);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -36,7 +26,7 @@ export default function NormalButton({ buttonName, icon, alias, iconColor = 'whi
     <Button
       size="small"
       variant=""
-      onClick={whatToDoOnClick || defaultHandleButtonClick} // Use provided function or default
+      onClick={whatToDoOnClick || defaultHandleButtonClick}
       sx={{
         width: 50,
         height: 50,

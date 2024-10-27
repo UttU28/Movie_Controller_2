@@ -1,4 +1,4 @@
-// Layout.js
+// app/layout.js
 import localFont from "next/font/local";
 import "./globals.css";
 import { AppStateProvider } from "../context/AppStateContext"; // Import AppStateProvider

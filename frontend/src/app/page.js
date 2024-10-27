@@ -1,4 +1,4 @@
-// page.js
+// app/page.js
 "use client";
 
 import React from 'react';
@@ -14,6 +14,7 @@ import FMovies from "../containers/appFunctions/FMovies";
 import GoogleChrome from "../containers/appFunctions/GoogleChrome";
 import { useAppState } from '../context/AppStateContext'; // Import context
 import TrackPad from "../containers/trackPad/TrackPad";
+import SearchBar from "../components/SearchBar";
 
 export default function Home() {
     const { visibleContentID } = useAppState(); // Get visible content from context
@@ -25,11 +26,7 @@ export default function Home() {
             </Typography>
             <HomeFunctions />
             <HotKeys />
-            {!visibleContentID && (
-                <>
-                    <AppTray />
-                </>
-            )}
+            {!visibleContentID && <AppTray />}
 
             {/* Render selected content */}
             {visibleContentID === "youTube" && <YouTube />}
@@ -38,8 +35,9 @@ export default function Home() {
             {visibleContentID === "googleChrome" && <GoogleChrome />}
             {visibleContentID === "primeVideos" && <AmazonPrime />}
             {visibleContentID === "netflix" && <Netflix />}
-            
+
             <TrackPad />
-            </Container>
+            <SearchBar visibleContentId={visibleContentID} />
+        </Container>
     );
 }

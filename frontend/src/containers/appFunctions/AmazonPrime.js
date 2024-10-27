@@ -7,7 +7,7 @@ export default function AmazonPrime() {
   const amazonPrime = [
     [
       { name: "newTabAP", icon: faPlus, alias: "NEW TAB" },
-      { name: "fullScreenAP", icon: faExpand, alias: "FLSCRN" },
+      { name: "fullScreen", icon: faExpand, alias: "FLSCRN" },
       { name: "startAP", icon: faArrowLeft, alias: "START" },
       { name: "goBack", icon: faHouse, alias: "HOME" },
     ]

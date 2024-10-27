@@ -1,21 +1,21 @@
-// components/GoogleChrome.js
+// components/FMovies.js
 import React from 'react';
 import ButtonGroup from "../../components/ButtonGroup";
-import { faPlus, faComputerMouse, faVolumeHigh, faHouse, faArrowLeft, faVolumeLow, faExpand } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faComputerMouse, faHouse, faArrowLeft, faExpand } from '@fortawesome/free-solid-svg-icons';
 
-export default function GoogleChrome() {
-  const googleChrome = [
+export default function FMovies() {
+  const fMovies = [
     [
-      { name: "newTabGC", icon: faPlus, alias: "NEW TAB" },
-      { name: "click1GC", icon: faComputerMouse, alias: "CLICK 1" },
-      { name: "fullScreenGC", icon: faExpand, alias: "FLSCRN" },
-      { name: "startGC", icon: faArrowLeft, alias: "START" },
-      { name: "click2GC", icon: faComputerMouse, alias: "CLICK 2" },
+      { name: "newTabFM", icon: faPlus, alias: "NEW TAB" },
+      { name: "click1FM", icon: faComputerMouse, alias: "CLICK 1" },
+      { name: "startFM", icon: faArrowLeft, alias: "START" },
+      { name: "skipIntroFM", icon: faComputerMouse, alias: "SKIP" },
+      { name: "fullScreen", icon: faExpand, alias: "FLSCRN" },
       { name: "goBack", icon: faHouse, alias: "HOME" },
     ]
   ];
 
   return (
-    <ButtonGroup buttonData={googleChrome} whatContainer="googleChrome" />
+    <ButtonGroup buttonData={fMovies} whatContainer="fMovies" />
   );
 }

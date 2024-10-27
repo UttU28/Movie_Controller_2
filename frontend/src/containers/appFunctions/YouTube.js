@@ -8,9 +8,9 @@ export default function YouTube() {
     [
       { name: "newTabYT", icon: faPlus, alias: "NEW TAB" },
       { name: "escapeYT", icon: faMinimize, alias: "ESC" },
-      { name: "saveMusicYT", icon: faMusic, alias: "WORK" },
+      { name: "startYT", icon: faMusic, alias: "START" },
       { name: "iButtonYT", icon: faInfo, alias: "MNMIZE" },
-      { name: "fullScreenYT", icon: faExpand, alias: "FLSCRN" },
+      { name: "fullScreen", icon: faExpand, alias: "FLSCRN" },
       { name: "goBack", icon: faHouse, alias: "HOME" },
     ]
   ];
