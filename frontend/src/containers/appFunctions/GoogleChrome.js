@@ -1,6 +1,6 @@
 // components/GoogleChrome.js
 import React from 'react';
-import ButtonGroup from "../components/ButtonGroup";
+import ButtonGroup from "../../components/ButtonGroup";
 import { faPlus, faFloppyDisk, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 export default function GoogleChrome() {

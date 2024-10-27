@@ -1,6 +1,6 @@
 // components/AmazonPrime.js
 import React from 'react';
-import ButtonGroup from "../components/ButtonGroup";
+import ButtonGroup from "../../components/ButtonGroup";
 import { faPlus, faHouse, faArrowLeft, faExpand } from '@fortawesome/free-solid-svg-icons';
 
 export default function AmazonPrime() {

@@ -6,14 +6,14 @@ import { Container, Typography } from "@mui/material";
 import AppTray from "../components/AppTray";
 import HomeFunctions from "../containers/HomeFunctions";
 import HotKeys from "../containers/HotKeys";
-import YouTube from "../containers/YouTube";
-import AmazonPrime from "../containers/AmazonPrime";
-import IBomma from "../containers/IBomma";
-import Netflix from "../containers/Netflix";
-import FMovies from "../containers/FMovies";
-import GoogleChrome from "../containers/GoogleChrome";
+import YouTube from "../containers/appFunctions/YouTube";
+import AmazonPrime from "../containers/appFunctions/AmazonPrime";
+import IBomma from "../containers/appFunctions/IBomma";
+import Netflix from "../containers/appFunctions/Netflix";
+import FMovies from "../containers/appFunctions/FMovies";
+import GoogleChrome from "../containers/appFunctions/GoogleChrome";
 import { useAppState } from '../context/AppStateContext'; // Import context
-import TrackPad from "../trackPad/TrackPad";
+import TrackPad from "../containers/trackPad/TrackPad";
 
 export default function Home() {
     const { visibleContentID } = useAppState(); // Get visible content from context

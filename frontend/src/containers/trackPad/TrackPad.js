@@ -5,7 +5,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, Slider, Container } from "@mui/material";
 import ScrollBar from "./ScrollBar";
 import ButtonContainer from "./ButtonContainer";
-import { sendMovement, sendScroll, sendClick } from "../context/apiRequests";
+import { sendMovement, sendScroll, sendClick } from "../../context/apiRequests";
 
 export default function TrackPad() {
   const [startX, setStartX] = useState(null);
