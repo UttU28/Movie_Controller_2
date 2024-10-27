@@ -5,10 +5,10 @@ import { Button, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppState } from '../context/AppStateContext'; // Import context
 
-export default function NormalButton({ buttonName, icon, alias }) {
+export default function NormalButton({ buttonName, icon, alias, iconColor = 'white', whatToDoOnClick }) {
   const { goBack } = useAppState(); // Use context to handle goBack
 
-  const handleButtonClick = async () => {
+  const defaultHandleButtonClick = async () => {
     try {
       console.log(buttonName);
       if (buttonName === 'goBack') {
@@ -36,10 +36,12 @@ export default function NormalButton({ buttonName, icon, alias }) {
     <Button
       size="small"
       variant=""
-      onClick={handleButtonClick}
+      onClick={whatToDoOnClick || defaultHandleButtonClick} // Use provided function or default
       sx={{
-        width: 60,
-        height: 60,
+        width: 50,
+        height: 50,
+        padding: 0,
+        margin: 0,
         borderRadius: 2,
         fontWeight: 'bold',
         display: 'flex',
@@ -48,8 +50,8 @@ export default function NormalButton({ buttonName, icon, alias }) {
         alignItems: 'center',
       }}
     >
-      <FontAwesomeIcon icon={icon} style={{ color: 'white', fontSize: '1.25rem' }} />
-      <Typography variant="caption" sx={{ pt: 0.5, color: 'white', fontWeight: 'bold', fontSize: '0.50rem' }}>
+      <FontAwesomeIcon icon={icon} style={{ color: iconColor, fontSize: '1.25rem' }} />
+      <Typography variant="caption" sx={{ pt: 0.5, color: iconColor, fontWeight: 'bold', fontSize: '0.50rem' }}>
         {alias}
       </Typography>
     </Button>

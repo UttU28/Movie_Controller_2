@@ -2,11 +2,11 @@
 "use client";
 
 import React from 'react';
-import { Grid, Box, Container, Button, Typography } from '@mui/material';
+import { Grid, Box, Container } from '@mui/material';
 import { faFilm, faN } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube, faGoogle, faAmazon } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppState } from '../context/AppStateContext'; // Import the context
+import NormalButton from "./NormalButton";
 
 const appTray = [
     [
@@ -30,29 +30,13 @@ export default function AppTray() {
                         <Box display="flex" justifyContent="center" mb={2}>
                             {group.map((button, secondIndex) => (
                                 <Box mx={0} key={secondIndex}>
-                                    <Button
-                                        size="small"
-                                        variant="outlined"
-                                        onClick={() => showApp(button.contentID)} // Call showApp from context
-                                        sx={{
-                                            width: 60,
-                                            height: 60,
-                                            borderRadius: 2,
-                                            fontWeight: 'bold',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={button.icon}
-                                            style={{ color: button.contentColor, fontSize: '1.25rem', fontWeight: 'bold' }}
-                                        />
-                                        <Typography variant="caption" sx={{ pt: 0.5, color: 'white', fontWeight: 'bold', fontSize: '0.50rem' }}>
-                                            {button.alias}
-                                        </Typography>
-                                    </Button>
+                                    <NormalButton
+                                        buttonName={button.name}
+                                        whatToDoOnClick={() => showApp(button.contentID)} // Use whatToDoOnClick to call showApp from context
+                                        icon={button.icon}
+                                        alias={button.alias}
+                                        iconColor={button.contentColor}
+                                    />
                                 </Box>
                             ))}
                         </Box>

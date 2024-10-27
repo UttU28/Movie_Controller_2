@@ -1,7 +1,7 @@
 // components/YouTube.js
 import React from 'react';
 import ButtonGroup from "../components/ButtonGroup";
-import { faPlus, faMinimize, faVolumeHigh, faHouse, faInfo, faExpand, faVolumeLow, faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinimize, faHouse, faInfo, faExpand, faMusic } from '@fortawesome/free-solid-svg-icons';
 
 export default function YouTube() {
   const youTube = [

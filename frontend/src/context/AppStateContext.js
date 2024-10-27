@@ -1,5 +1,5 @@
-// context/AppStateContext.js
 "use client";
+// context/AppStateContext.js
 
 import React, { createContext, useContext, useState } from 'react';
 

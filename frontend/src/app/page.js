@@ -3,9 +3,9 @@
 
 import React from 'react';
 import { Container, Typography } from "@mui/material";
+import AppTray from "../components/AppTray";
 import HomeFunctions from "../containers/HomeFunctions";
 import HotKeys from "../containers/HotKeys";
-import AppTray from "../components/AppTray";
 import YouTube from "../containers/YouTube";
 import AmazonPrime from "../containers/AmazonPrime";
 import IBomma from "../containers/IBomma";
@@ -13,8 +13,7 @@ import Netflix from "../containers/Netflix";
 import FMovies from "../containers/FMovies";
 import GoogleChrome from "../containers/GoogleChrome";
 import { useAppState } from '../context/AppStateContext'; // Import context
-import MainController from "../containers/MainControlls";
-import TrackPad from "../containers/TrackPad";
+import TrackPad from "../trackPad/TrackPad";
 
 export default function Home() {
     const { visibleContentID } = useAppState(); // Get visible content from context

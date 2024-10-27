@@ -1,8 +1,11 @@
+// TrackPad.js
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import axios from "axios";
-import { Box, Button, Slider, Typography, Container } from "@mui/material";
+import { Box, Slider, Container } from "@mui/material";
+import ScrollBar from "./ScrollBar";
+import ButtonContainer from "./ButtonContainer";
+import { sendMovement, sendScroll, sendClick } from "../context/apiRequests";
 
 export default function TrackPad() {
   const [startX, setStartX] = useState(null);
@@ -14,9 +17,9 @@ export default function TrackPad() {
   const deltaYRef = useRef(0);
   const requestIdRef = useRef(null);
 
-  const sendMovement = useCallback(async () => {
+  const sendMovementRequest = useCallback(async () => {
     if (deltaXRef.current === 0 && deltaYRef.current === 0) {
-      requestIdRef.current = requestAnimationFrame(sendMovement);
+      requestIdRef.current = requestAnimationFrame(sendMovementRequest);
       return;
     }
 
@@ -27,22 +30,17 @@ export default function TrackPad() {
     deltaYRef.current = 0;
 
     console.log(`Sending dx: ${dx}, dy: ${dy}`);
+    await sendMovement(dx, dy);
 
-    try {
-      await axios.post("http://192.168.0.132:5000/move", { dx, dy });
-    } catch (error) {
-      console.error("Error sending motion data:", error);
-    }
-
-    requestIdRef.current = requestAnimationFrame(sendMovement);
+    requestIdRef.current = requestAnimationFrame(sendMovementRequest);
   }, []);
 
   useEffect(() => {
-    requestIdRef.current = requestAnimationFrame(sendMovement);
+    requestIdRef.current = requestAnimationFrame(sendMovementRequest);
     return () => {
       if (requestIdRef.current) cancelAnimationFrame(requestIdRef.current);
     };
-  }, [sendMovement]);
+  }, [sendMovementRequest]);
 
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
@@ -81,12 +79,7 @@ export default function TrackPad() {
     const deltaY = (touch.clientY - scrollStartY) * (0.5 * multiplier);
 
     console.log(`Sending scroll: dy=${deltaY}`);
-
-    try {
-      await axios.post("http://192.168.0.132:5000/scroll", { dy: deltaY });
-    } catch (error) {
-      console.error("Error sending scroll data:", error);
-    }
+    await sendScroll(deltaY);
 
     setScrollStartY(touch.clientY);
   };
@@ -95,20 +88,12 @@ export default function TrackPad() {
     setScrollStartY(null);
   };
 
-  const handleLeftClick = async () => {
-    try {
-      await axios.post("http://192.168.0.132:5000/click", { button: "left" });
-    } catch (error) {
-      console.error("Error sending left click:", error);
-    }
+  const handleLeftClick = () => {
+    sendClick("left");
   };
 
-  const handleRightClick = async () => {
-    try {
-      await axios.post("http://192.168.0.132:5000/click", { button: "right" });
-    } catch (error) {
-      console.error("Error sending right click:", error);
-    }
+  const handleRightClick = () => {
+    sendClick("right");
   };
 
   return (
@@ -124,21 +109,12 @@ export default function TrackPad() {
       }}
     >
       <Box sx={{ display: "flex", height: "300px", gap: 1, flex: 1 }}>
-        {/* Scrollbar */}
-        <Box
+        <ScrollBar
           onTouchStart={handleScrollStart}
           onTouchMove={handleScrollMove}
           onTouchEnd={handleScrollEnd}
-          sx={{
-            flex: 0.1,
-            height: "25vh",
-            backgroundColor: "#ddd",
-            borderRadius: 2,
-            touchAction: "none",
-          }}
         />
 
-        {/* Trackpad */}
         <Box
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -146,13 +122,12 @@ export default function TrackPad() {
           sx={{
             flex: 0.85,
             height: "25vh",
-            backgroundColor: "#ddd",
+            backgroundColor: "#212121",
             borderRadius: 2,
             touchAction: "none",
           }}
         />
 
-        {/* Vertical Slider */}
         <Box
           sx={{
             flex: 0.05,
@@ -174,35 +149,7 @@ export default function TrackPad() {
         </Box>
       </Box>
 
-      {/* Buttons Container */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 2,
-          width: "100%",
-          margin: 0,
-          padding: 0,
-        }}
-      >
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleLeftClick}
-          sx={{ width: "100%" }}
-        >
-          Left Click
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleRightClick}
-          sx={{ width: "100%" }}
-        >
-          Right Click
-        </Button>
-      </Box>
+      <ButtonContainer onLeftClick={handleLeftClick} onRightClick={handleRightClick} />
     </Container>
   );
 }
