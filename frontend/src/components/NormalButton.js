@@ -35,7 +35,7 @@ export default function NormalButton({ buttonName, icon, alias }) {
   return (
     <Button
       size="small"
-      variant="outlined"
+      variant=""
       onClick={handleButtonClick}
       sx={{
         width: 60,

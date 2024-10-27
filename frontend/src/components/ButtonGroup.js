@@ -5,12 +5,12 @@ import NormalButton from "./NormalButton";
 const ButtonGroup = ({ buttonData, whatContainer }) => {
   return (
     <Container className={whatContainer}>
-      <Grid container spacing={1}>
+      <Grid container spacing={0} mb={1}>
         {buttonData.map((group, index) => (
           <Grid item xs={12} key={index}>
-            <Box display="flex" justifyContent="center" mb={2}>
+            <Box display="flex" justifyContent="center" mb={1}>
               {group.map((button, secondIndex) => (
-                <Box mx={1} key={secondIndex}>
+                <Box mx={0} key={secondIndex}>
                   <NormalButton 
                     buttonName={button.name} 
                     icon={button.icon} 

@@ -7,12 +7,8 @@ export default function Netflix() {
   const netflix = [
     [
       { name: "newTabN", icon: faPlus, alias: "NEW TAB" },
-      { name: "volUpN", icon: faVolumeHigh, alias: "VOL" },
       { name: "fullScreenN", icon: faExpand, alias: "FLSCRN" },
-    ],
-    [
       { name: "startN", icon: faArrowLeft, alias: "START" },
-      { name: "volDownN", icon: faVolumeLow, alias: "VOL" },
       { name: "goBack", icon: faHouse, alias: "HOME" },
     ]
   ];

@@ -8,14 +8,10 @@ export default function GoogleChrome() {
     [
       { name: "newTabGC", icon: faPlus, alias: "NEW TAB" },
       { name: "click1GC", icon: faComputerMouse, alias: "CLICK 1" },
-      { name: "volUpGC", icon: faVolumeHigh, alias: "VOL" },
-      { name: "fullScreenGC", icon: faExpand, alias: "FLSCRN" }
-    ],
-    [
+      { name: "fullScreenGC", icon: faExpand, alias: "FLSCRN" },
       { name: "startGC", icon: faArrowLeft, alias: "START" },
       { name: "click2GC", icon: faComputerMouse, alias: "CLICK 2" },
-      { name: "volDownGC", icon: faVolumeLow, alias: "VOL" },
-      { name: "goBack", icon: faHouse, alias: "HOME" }
+      { name: "goBack", icon: faHouse, alias: "HOME" },
     ]
   ];
 

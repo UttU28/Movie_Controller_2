@@ -8,13 +8,9 @@ export default function IBomma() {
     [
       { name: "newTabIB", icon: faPlus, alias: "NEW TAB" },
       { name: "click1IB", icon: faComputerMouse, alias: "CLICK 1" },
-      { name: "volUpIB", icon: faVolumeHigh, alias: "VOL" },
       { name: "fullScreenIB", icon: faMusic, alias: "FLSCRN" },
-    ],
-    [
       { name: "startIB", icon: faInfo, alias: "START" },
       { name: "click2IB", icon: faExpand, alias: "CLICK 2" },
-      { name: "volDownIB", icon: faVolumeLow, alias: "VOL" },
       { name: "goBack", icon: faHouse, alias: "HOME" }
     ]
   ];

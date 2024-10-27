@@ -12,6 +12,7 @@ const appTray = [
     [
         { name: "youTubeButton", icon: faYoutube, contentColor: "red", contentID: "youTube", alias: "YouTube" },
         { name: "fMoviesButton", icon: faFilm, contentColor: "lightblue", contentID: "fMovies", alias: "FMovies" },
+        { name: "iBommaButton", icon: faFilm, contentColor: "white", contentID: "iBomma", alias: "IBomma" },
         { name: "googleChromeButton", icon: faGoogle, contentColor: "white", contentID: "googleChrome", alias: "Chrome" },
         { name: "primeVideosButton", icon: faAmazon, contentColor: "lightblue", contentID: "primeVideos", alias: "Prime" },
         { name: "netflixButton", icon: faN, contentColor: "red", contentID: "netflix", alias: "Netflix" }
@@ -23,12 +24,12 @@ export default function AppTray() {
 
     return (
         <Container>
-            <Grid container spacing={1}>
+            <Grid container spacing={0}>
                 {appTray.map((group, index) => (
                     <Grid item xs={12} key={index}>
                         <Box display="flex" justifyContent="center" mb={2}>
                             {group.map((button, secondIndex) => (
-                                <Box mx={1} key={secondIndex}>
+                                <Box mx={0} key={secondIndex}>
                                     <Button
                                         size="small"
                                         variant="outlined"
