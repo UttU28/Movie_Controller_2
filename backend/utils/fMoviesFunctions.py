@@ -4,7 +4,7 @@ def searchFMovies(searchData):
     py.keyDown('ctrl')
     py.press('l')
     py.keyUp('ctrl')
-    py.typewrite(f'https://fmoviesz.to/filter?keyword={"+".join(searchData.strip().split(" "))}')
+    py.typewrite(f'https://ww4.fmovies.co/filter?keyword={"+".join(searchData.strip().split(" "))}')
     py.press('enter')
     # py.typewrite(searchData)
 
@@ -12,7 +12,7 @@ def newTabFM():
     py.keyDown('ctrl')
     py.press('t')
     py.keyUp('ctrl')
-    py.typewrite('https://fmoviesz.to/home')
+    py.typewrite('https://ww4.fmovies.co/home')
     py.press('enter')
 
 def click1FM():

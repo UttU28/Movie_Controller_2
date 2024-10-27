@@ -2,3 +2,5 @@ fastapi
 fastapi_cors
 pyautogui
 uvicorn
+selenium
+bs4

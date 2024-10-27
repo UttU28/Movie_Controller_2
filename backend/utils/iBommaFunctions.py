@@ -12,7 +12,7 @@ def newTabIB():
     py.keyDown('ctrl')
     py.press('t')
     py.keyUp('ctrl')
-    py.typewrite('https://com.ibomma.lol/telugu-movies/')
+    py.typewrite('https://www.ibomma.co.in/')
     py.press('enter')
 
 def skipIntroIB():

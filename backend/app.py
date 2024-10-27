@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-import pyautogui
+import pyautogui, socket
 
 from utils.fMoviesFunctions import *
 from utils.googleChromeFunctions import *
@@ -10,6 +10,15 @@ from utils.iBommaFunctions import *
 from utils.netflixFunctions import *
 from utils.primeVideosFunctions import *
 from utils.youTubeFunctions import *
+
+from seleniumUtils.seleniumWorker import prepareChromeAndSelenium, scrapeDataFrom
+
+def isChromeRunning():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('localhost', 8989))
+    sock.close()
+    return result != 0
+
 
 app = FastAPI()
 
@@ -125,5 +134,6 @@ async def search_query(request: Request):
     }
 
 if __name__ == "__main__":
+    thisChromeDriver = prepareChromeAndSelenium(isChromeRunning())
     import uvicorn
     uvicorn.run("app:app", host="0.0.0.0", port=5000, reload=True)
